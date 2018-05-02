@@ -1,0 +1,70 @@
+﻿<Window x:Class="WpfStyleTest.AnimationWindow2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfStyleTest"
+        mc:Ignorable="d"
+        Title="AnimationWindow2" Height="450" Width="800">
+ 
+    <Window.Triggers>
+        <EventTrigger SourceName="cmdStart" RoutedEvent="Button.Click">
+            <BeginStoryboard Name="fadeStoryboardBegin">
+                <!--<Storyboard CurrentTimeInvalidated="Storyboard_CurrentTimeInvalidated">
+                    <DoubleAnimation Storyboard.TargetName="imgDay" Storyboard.TargetProperty="Opacity"
+                                     From="1" To="0" Duration="0:0:10">
+                    </DoubleAnimation>
+                </Storyboard>-->
+                <Storyboard CurrentTimeInvalidated="Storyboard_CurrentTimeInvalidated">
+                        <!--擦除效果-->
+                <DoubleAnimation Storyboard.TargetName="visibleStop" Storyboard.TargetProperty="Offset" From="0" To="1.2"
+                                     Duration="0:0:1.2"></DoubleAnimation>
+                <DoubleAnimation Storyboard.TargetName="transparentStop" Storyboard.TargetProperty="Offset"
+                                     BeginTime="0:0:0.2" From="0" To="1"
+                                     Duration="0:0:1"></DoubleAnimation>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+
+        <EventTrigger SourceName="cmdPause" RoutedEvent="Button.Click">
+            <PauseStoryboard BeginStoryboardName="fadeStoryboardBegin"></PauseStoryboard>
+        </EventTrigger>
+        <EventTrigger SourceName="cmdResume" RoutedEvent="Button.Click">
+            <ResumeStoryboard BeginStoryboardName="fadeStoryboardBegin"></ResumeStoryboard>
+        </EventTrigger>
+        <EventTrigger SourceName="cmdStop" RoutedEvent="Button.Click">
+            <StopStoryboard BeginStoryboardName="fadeStoryboardBegin"></StopStoryboard>
+        </EventTrigger>
+        <EventTrigger SourceName="cmdMiddle" RoutedEvent="Button.Click">
+            <SeekStoryboard BeginStoryboardName="fadeStoryboardBegin" Offset="0:0:5"></SeekStoryboard>
+        </EventTrigger>
+    </Window.Triggers>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <Image Grid.Row="0" Source="Resources\night.jpg"></Image>
+        <Image Grid.Row="0" Source="Resources\day.jpg" Name="imgDay">
+            <Image.OpacityMask>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                    <GradientStop Offset="0" Color="Transparent" x:Name="transparentStop"></GradientStop>
+                    <GradientStop Offset="0" Color="Black" x:Name="visibleStop"></GradientStop>
+                </LinearGradientBrush>
+            </Image.OpacityMask>
+        </Image>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="5">
+            <Button Name="cmdStart">Start</Button>
+            <Button Name="cmdPause">Pause</Button>
+            <Button Name="cmdResume">Resume</Button>
+            <Button Name="cmdStop">Stop</Button>
+            <Button Name="cmdMiddle">Move To Middle</Button>
+        </StackPanel>
+        <StackPanel Grid.Row="2" VerticalAlignment="Bottom">
+            <TextBlock Name="textBlock"></TextBlock>
+            <ProgressBar Name="progressBar" Minimum="0"  Maximum="10" LargeChange="0" ></ProgressBar>
+        </StackPanel>
+    </Grid>
+</Window>

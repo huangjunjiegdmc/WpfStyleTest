@@ -1,0 +1,20 @@
+﻿<Window x:Class="WpfStyleTest.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:prop="clr-namespace:WpfStyleTest.Properties"
+        xmlns:local="clr-namespace:WpfStyleTest"        
+        mc:Ignorable="d"
+        Title="LoginWindow" Height="350.607" Width="547.694">
+    <Grid>
+        <Label Content="{x:Static prop:Resources.UserName}" HorizontalAlignment="Left" Margin="131,90,0,0" VerticalAlignment="Top" Width="57"/>
+        <Label Content="{x:Static prop:Resources.password}" HorizontalAlignment="Left" Margin="131,154,0,0" VerticalAlignment="Top" Width="57"/>
+        <TextBox Style="{StaticResource RoundCornerTextBoxStyle}" HorizontalAlignment="Left" Height="23" Margin="193,156,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="230">
+            
+        </TextBox>
+        <TextBox Style="{StaticResource RoundCornerTextBoxStyle}" HorizontalAlignment="Left" Height="23" Margin="193,93,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="230"/>
+        <Button Style="{StaticResource LogonButton}" Content="登录" HorizontalAlignment="Left" Margin="131,207,0,0" VerticalAlignment="Top" Width="292" Height="35"/>
+
+    </Grid>
+</Window>

@@ -1,0 +1,17 @@
+﻿<Window x:Class="WpfStyleTest.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfStyleTest"
+        mc:Ignorable="d"
+        Title="Window1" Height="450" Width="800">
+    <Grid>
+        <Border Background="#FF66AFE9" Margin="50" CornerRadius="7">
+            <Border.Effect>
+                <BlurEffect Radius="4" KernelType="Box"  RenderingBias="Quality"/>
+            </Border.Effect>
+        </Border>
+        <Border Background="White" Margin="50" CornerRadius="12" BorderBrush="#FF66AFE9" BorderThickness="1"/>
+    </Grid>
+</Window>

@@ -1,0 +1,111 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:WpfStyleTest" xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero"
+                    xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing">
+
+    
+
+    <SolidColorBrush x:Key="ButtonNormalBorder" Color="#FF707070"/>
+    <Style x:Key="TransformButtonStyle" TargetType="{x:Type Button}">
+        <Setter Property="FocusVisualStyle" Value="{StaticResource ButtonFocusVisual}"/>
+        <Setter Property="Background" Value="{StaticResource ButtonNormalBackground}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource ButtonNormalBorder}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Padding" Value="1"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <ControlTemplate.Resources>
+                        <Storyboard FillBehavior="Stop" x:Key="storyboard1" >
+                            <DoubleAnimationUsingKeyFrames  Storyboard.TargetProperty="(ed:Arc.EndAngle)"  Storyboard.TargetName="arc">
+                                <EasingDoubleKeyFrame KeyTime="0:0:0" Value="0"/>
+                                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="360"/>
+                            </DoubleAnimationUsingKeyFrames>
+                            <DoubleAnimationUsingKeyFrames  Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="path">
+                                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+                                <EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="1"/>
+                            </DoubleAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </ControlTemplate.Resources>
+                    <Themes:ButtonChrome x:Name="Chrome" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}" RenderMouseOver="{TemplateBinding IsMouseOver}" RenderPressed="{TemplateBinding IsPressed}" RenderDefaulted="{TemplateBinding IsDefaulted}" SnapsToDevicePixels="true">
+                        <Grid>                            
+                            <ed:Arc x:Name="arc" ArcThickness="2" ArcThicknessUnit="Pixel" EndAngle="0" Fill="#FFBEBEBE" Stretch="None"
+                         Stroke="#FF21BCCC" Width="40" Height="40">
+                            </ed:Arc>
+                            <Path Stroke="Green" StrokeThickness="5" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="path" Data="M28.591877,3.1252818 L30.000001,4.5317061 L13.886257,23.3066 4.9996965,12" Opacity="0"></Path>
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Grid>
+                    </Themes:ButtonChrome>
+                    <ControlTemplate.Triggers>
+                        <EventTrigger RoutedEvent="Click">
+                            <BeginStoryboard Storyboard="{StaticResource storyboard1}"></BeginStoryboard>
+                        </EventTrigger>
+                        <Trigger Property="IsKeyboardFocused" Value="true">
+                            <Setter Property="RenderDefaulted" TargetName="Chrome" Value="true"/>
+                        </Trigger>
+                        <Trigger Property="ToggleButton.IsChecked" Value="true">
+                            <Setter Property="RenderPressed" TargetName="Chrome" Value="true"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Foreground" Value="#ADADAD"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="TransformButtonStyleRepeat" TargetType="{x:Type Button}">
+        <Setter Property="FocusVisualStyle" Value="{StaticResource ButtonFocusVisual}"/>
+        <Setter Property="Background" Value="{StaticResource ButtonNormalBackground}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource ButtonNormalBorder}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Padding" Value="1"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <ControlTemplate.Resources>
+                        <Storyboard  x:Key="storyboard2"  FillBehavior="Stop">
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)"  Storyboard.TargetName="arc">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+                            </ObjectAnimationUsingKeyFrames>
+                            <DoubleAnimationUsingKeyFrames  Storyboard.TargetProperty="(ed:Arc.EndAngle)"  Storyboard.TargetName="arc">
+                                <EasingDoubleKeyFrame KeyTime="0:0:0" Value="0"/>
+                                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="360"/>
+                            </DoubleAnimationUsingKeyFrames>                            
+                        </Storyboard>
+                    </ControlTemplate.Resources>
+                    <Themes:ButtonChrome x:Name="Chrome" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}" RenderMouseOver="{TemplateBinding IsMouseOver}" RenderPressed="{TemplateBinding IsPressed}" RenderDefaulted="{TemplateBinding IsDefaulted}" SnapsToDevicePixels="true">
+                        <WrapPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <ed:Arc x:Name="arc" ArcThickness="2" ArcThicknessUnit="Pixel" EndAngle="0" Fill="#FFBEBEBE" Stretch="None"
+                         Stroke="#FF21BCCC" Width="40" Height="40" Visibility="Collapsed">
+                            </ed:Arc>                            
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </WrapPanel>
+                    </Themes:ButtonChrome>
+                    <ControlTemplate.Triggers>
+                        <EventTrigger RoutedEvent="Click">
+                            <BeginStoryboard Storyboard="{StaticResource storyboard2}"></BeginStoryboard>
+                        </EventTrigger>
+                        <Trigger Property="IsKeyboardFocused" Value="true">
+                            <Setter Property="RenderDefaulted" TargetName="Chrome" Value="true"/>
+                        </Trigger>
+                        <Trigger Property="ToggleButton.IsChecked" Value="true">
+                            <Setter Property="RenderPressed" TargetName="Chrome" Value="true"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Foreground" Value="#ADADAD"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>
