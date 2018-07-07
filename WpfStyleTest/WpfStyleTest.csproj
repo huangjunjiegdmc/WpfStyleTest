@@ -112,6 +112,9 @@
     <Compile Include="TabControlWindow.xaml.cs">
       <DependentUpon>TabControlWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TransparentWindow.xaml.cs">
+      <DependentUpon>TransparentWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
     </Compile>
@@ -233,6 +236,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="TransformButtonDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TransparentWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
