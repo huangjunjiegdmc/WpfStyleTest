@@ -14,7 +14,7 @@
                         <BeginStoryboard HandoffBehavior="Compose">
                             <Storyboard>
                                 <DoubleAnimation Storyboard.TargetProperty="FontSize"
-                                                 To="20" Duration="0:0:0.2"></DoubleAnimation>
+                                                 To="20" Duration="0:0:0.05"></DoubleAnimation>
                             </Storyboard>
                         </BeginStoryboard>
                     </EventTrigger.Actions>
@@ -24,7 +24,7 @@
                         <BeginStoryboard HandoffBehavior="Compose">
                             <Storyboard>
                                 <DoubleAnimation Storyboard.TargetProperty="FontSize"
-                                                 To="12" Duration="0:0:0.2"></DoubleAnimation>
+                                                 To="12" Duration="0:0:0.05"></DoubleAnimation>
                             </Storyboard>
                         </BeginStoryboard>
                     </EventTrigger.Actions>
@@ -60,10 +60,10 @@
                                 <DoubleAnimation Storyboard.TargetProperty="Width" To="300" Duration="0:0:1">
                                     <DoubleAnimation.EasingFunction>
                                         <!--<BackEase EasingMode="EaseOut" Amplitude="1"></BackEase>-->
-                                        <BounceEase EasingMode="EaseOut" Bounciness="10" ></BounceEase>
+                                        <!--<BounceEase EasingMode="EaseOut" Bounciness="10" ></BounceEase>-->
                                         <!--<CircleEase EasingMode="EaseOut"></CircleEase>-->
                                         <!--<CubicEase EasingMode="EaseOut"></CubicEase>-->
-                                        <!--<ElasticEase EasingMode="EaseOut" Oscillations="1" Springiness="2"></ElasticEase>-->
+                                        <ElasticEase EasingMode="EaseOut" Oscillations="1" Springiness="2"></ElasticEase>
                                         <!--<ExponentialEase EasingMode="EaseOut" Exponent="30"></ExponentialEase>-->
                                         <!--<PowerEase EasingMode="EaseOut"  Power="20"></PowerEase>-->
                                         <!--<QuadraticEase EasingMode="EaseOut"></QuadraticEase>-->

@@ -10,27 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
-using ControlzEx.Standard;
-using MahApps.Metro.Controls;
-using MahApps.Metro.Controls.Dialogs;
 
 namespace WpfStyleTest
 {
     /// <summary>
-    /// MetroTestWindow.xaml 的交互逻辑
+    /// PageFunction1.xaml 的交互逻辑
     /// </summary>
-    public partial class MetroTestWindow : MetroWindow
+    public partial class PageFunction1 : PageFunction<String>
     {
-        public MetroTestWindow()
+        public PageFunction1()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            this.ShowModalLoginExternal("This is the title", "Some message");
-            this.ShowInputAsync("This is the title", "Some message");
         }
     }
 }

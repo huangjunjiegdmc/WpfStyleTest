@@ -106,6 +106,9 @@
     <Compile Include="MetroTestWindow.xaml.cs">
       <DependentUpon>MetroTestWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PageFunction1.xaml.cs">
+      <DependentUpon>PageFunction1.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PathGeometryWindow.xaml.cs">
       <DependentUpon>PathGeometryWindow.xaml</DependentUpon>
     </Compile>
@@ -204,6 +207,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MetroTestWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFunction1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

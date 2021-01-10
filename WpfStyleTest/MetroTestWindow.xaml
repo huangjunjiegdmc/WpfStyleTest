@@ -6,14 +6,25 @@
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:local="clr-namespace:WpfStyleTest"
         mc:Ignorable="d"
-        Title="MetroTestWindow" Height="450" Width="800" Background="#FF96CBF7">
-    <Grid Margin="0,0,0,-21">
-        <TextBox Name="txtUserName" HorizontalAlignment="Left" Height="23" Margin="60,54,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="255" MaxLength="10"/>
-        <Label Content="用户名：" HorizontalAlignment="Left" Margin="60,19,0,0" VerticalAlignment="Top" FontSize="16" RenderTransformOrigin="0.554,-0.267"/>
-        <Label Content="密码：" HorizontalAlignment="Left" Margin="60,85,0,0" VerticalAlignment="Top" FontSize="16" RenderTransformOrigin="0.586,-0.5"/>
-        <Button Name="btnLogin" Content="登陆" HorizontalAlignment="Left" Margin="211,200,0,0" VerticalAlignment="Top" Width="104" FontSize="16" RenderTransformOrigin="0.493,1.03"/>
-        <CheckBox Name="chkRemeber" Content="记住我" HorizontalAlignment="Left" Margin="60,165,0,0" VerticalAlignment="Top" FontSize="16" RenderTransformOrigin="0.069,0.381"/>
-        <PasswordBox Name="txtPassword" HorizontalAlignment="Left" Margin="60,120,0,0" VerticalAlignment="Top" Width="255" FontSize="16" MaxLength="14"/>
+        Title="MetroTestWindow" Height="450" Width="800">
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
 
+        <Controls:DropDownButton Content="test"
+                                 >
+            <Controls:HamburgerMenuItemCollection>
+                <Controls:HamburgerMenuItem Label="test">                    
+                </Controls:HamburgerMenuItem>
+                <Controls:HamburgerMenuGlyphItem Label="testt">                    
+                </Controls:HamburgerMenuGlyphItem>
+            </Controls:HamburgerMenuItemCollection>
+        </Controls:DropDownButton>
+        <Button Grid.Row="1" Content="test" Style="{DynamicResource MetroCircleButtonStyle}"
+                Width="30" Height="30"
+                Click="Button_Click"></Button>
     </Grid>
 </Controls:MetroWindow>
